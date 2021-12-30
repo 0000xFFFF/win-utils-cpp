@@ -1,0 +1,2 @@
+#include "res.h"
+IDR_RCDATA1		RCDATA		"file.txt"

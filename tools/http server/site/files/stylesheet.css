@@ -1,0 +1,29 @@
+body {
+	color: white;
+	background: black;
+	font-size: 2em;
+}
+
+#txt_msgs {
+	color: white;
+	border: red 1px solid;
+	max-width: 1000px;
+	word-break: break-all;
+	overflow: auto;
+	overflow-y: scroll;
+	max-height: 200px;
+}
+
+input[type=text] {
+	font-size: 30px;
+	border: red 1px solid;
+	background-color: #101010;
+	color: white;
+}
+
+button {
+	color: white;
+	background-color: #101010;
+	font-size: 30px;
+	border: red 1px solid;
+}

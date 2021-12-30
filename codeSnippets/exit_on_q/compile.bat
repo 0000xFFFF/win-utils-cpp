@@ -1,0 +1,1 @@
+g++ main.cpp -o exit_on_q.exe

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="shortcut icon" href="favicon.png">
+		<link rel="stylesheet" href="files/stylesheet.css">
+		<title>Test Site</title>
+	</head>
+	
+	<body>
+		<center>
+			<h1>Chat Test</h1>
+			<input type="text" id="txt_user" name="username" placeholder="Username"></input>
+			<div id="txt_msgs_cont"><pre id="txt_msgs"></pre></div>
+			<input type="text" id="txt_msg" name="msg" placeholder="Message"></input>
+			<button id="btn_postText">Post Text</button>
+			<button id="btn_getText">Get Text</button>
+		</center>
+	</body>
+	
+	<script>
+		
+		function time() {
+			let d = new Date();
+			let h = d.getHours();
+			let m = d.getMinutes();
+			let s = d.getSeconds();
+			return ((h<10?'0':'') + h + ':' + (m<10?'0':'') + m + ":" + (s<10?'0':'') + s);
+		}
+
+		function postText() {
+			
+			let text = "[" + time() + "] " + document.getElementById("txt_user").value + ": " + document.getElementById("txt_msg").value;
+		
+		
+			let request = new XMLHttpRequest();
+			request.open("POST", 'chatlogs.txt', true);
+			request.send(text)
+		}
+		
+		function getText(file) {
+			let request = new XMLHttpRequest();
+			request.open("GET", "edit/chatlogs.txt", true);
+			request.onreadystatechange = function () {
+				if(request.readyState === 4 && (request.status === 200 || request.status == 0)) {
+					document.getElementById("txt_msgs").innerHTML = request.responseText;
+				}
+			}
+			request.send(null);
+		}
+		
+		
+		// post
+		let btn1 = document.getElementById("btn_postText");
+		btn1.onclick = function() { postText(); getText(); }
+		document.getElementById("txt_msg").addEventListener("keydown", function(event) { if (event.key === 'Enter') { postText(); getText(); } }, false);
+		
+		// get text btn
+		let btn2 = document.getElementById("btn_getText");
+		btn2.onclick = function() { getText(); }
+		
+		// onload
+		getText();
+		
+		
+		document.getElementById("txt_msgs").scrollBottom();
+	</script>
+	
+</html>

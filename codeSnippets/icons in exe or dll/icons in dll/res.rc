@@ -1,0 +1,3 @@
+#include "main.h"
+ICON_1		ICON		"test1.ico"
+ICON_2		ICON		"test2.ico"

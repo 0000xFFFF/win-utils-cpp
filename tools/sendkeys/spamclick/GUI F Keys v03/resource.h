@@ -1,0 +1,1 @@
+#define APPLICATION_ICON 1337

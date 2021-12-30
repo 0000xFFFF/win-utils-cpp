@@ -1,0 +1,4 @@
+This is a file.
+New line.
+Test.
+1234567890

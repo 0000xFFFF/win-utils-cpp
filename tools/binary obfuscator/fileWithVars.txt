@@ -1,0 +1,2 @@
+SOME_VAR This is the value of some var
+ANOTHER_VAR More string values
